@@ -133,10 +133,10 @@ main .news-container .news .news-description p {
   line-height: 16px;
   font-weight: 400;
 }
-main .news-container .news .news-description p ol li {
+main .news-container .news .news-description ol li {
   font-family: "Poppins";
-  font-size: 28px;
-  line-height: 40px;
+  font-size: 16px;
+  line-height: 16px;
   font-weight: 400;
 }
 main .news-container .news .news-original-link {
