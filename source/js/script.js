@@ -48,7 +48,7 @@
 //   .then(data => console.log(data.articles))
 //   .catch(error => console.error(error))
 // Загружаем JSON-файл и распарсиваем его в объект JavaScript
-fetch('https://raw.githubusercontent.com/amandows/News/7a20a55284e1cda1ebf05be3b8c3092bf719c981/source/js/object.json')
+fetch('https://github.com/amandows/Gitpush/blob/8cb7136906624b7380b686571f116cb647a5dd71/polit.json')
   .then(response => response.json())
   .then(data => {
     // Получаем доступ к элементу в HTML, куда будут добавляться новости
