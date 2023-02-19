@@ -1,0 +1,132 @@
+*{
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+*,*:before,*:after{
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+:focus,:active{outline: none;}
+a:focus,a:active{outline: none;}
+
+nav,footer,header,aside{display: block;}
+
+html,body{
+	height: 100%;
+	width: 100%;
+	font-size: 100%;
+	line-height: 1;
+	font-size: 14px;
+	-ms-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+input,button,textarea{font-family:inherit;}
+
+input::-ms-clear{display: none;}
+button{cursor: pointer;}
+button::-moz-focus-inner {padding:0;border:0;}
+a, a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul li{list-style: none;}
+img{vertical-align: top;}
+
+h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Oswald:wght@200;300;400;500;600;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,800;1,900&display=swap');
+//____________________________________________________________
+header {
+  width: 100%;
+  min-height: 80px;
+  background-color: black;
+  .sub-header {
+    max-width: 1080px;
+    min-height: 80px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .filter {
+      width: 97%;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      .theme {
+        width: 75%;
+        height: 40px;
+      }
+      .btn  {
+        width: 20%;
+      }
+    }
+  }
+}
+main {
+  .news-container {
+    max-width: 1080px;
+    margin: 0 auto;
+    .news {
+      width: 97%;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      .news-img {
+        width: 100%;
+        img {
+          // position: absolute;
+          // top: 0;
+          // left: 0;
+          width: 100%;
+          // height: 100%;
+          // object-fit: cover;
+        }
+      }
+      .news-title  {
+        width: 100%;
+        margin: 20px;
+        h3 {
+          font-family: "Rubik";
+          font-size: 30px;
+          font-weight: 600;
+        }
+      }
+      .news-description {
+        width: 100%;
+        p {
+          font-family: "Poppins";
+          font-size: 28px;
+          line-height: 40px;
+          font-weight: 400;
+          ol {
+            li::marker {
+              font-family: "Poppins";
+              font-size: 28px;
+              line-height: 40px;
+              font-weight: 400;
+            }
+          }
+        }
+      }
+      .news-original-link {
+        width: 100%;
+        padding: 25px 0;
+        a {
+          font-size: 26px;
+          font-family: 'Montserrat';
+          font-weight: 600;
+          color: #db0b0b;
+        }
+      }
+    }
+    // .news > .news-img {
+    //   width: 100%;
+    //   position: relative;
+    //   padding-bottom: 60%;
+    //   background-color: #db0b0b;
+    // }
+  }
+}
