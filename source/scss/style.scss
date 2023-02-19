@@ -87,10 +87,10 @@ main {
       }
       .news-title  {
         width: 100%;
-        margin: 20px;
+        margin: 10px;
         h3 {
           font-family: "Rubik";
-          font-size: 30px;
+          font-size: 18px;
           font-weight: 600;
         }
       }
@@ -98,11 +98,11 @@ main {
         width: 100%;
         p {
           font-family: "Poppins";
-          font-size: 28px;
-          line-height: 40px;
+          font-size: 16px;
+          line-height: 16px;
           font-weight: 400;
           ol {
-            li::marker {
+            li {
               font-family: "Poppins";
               font-size: 28px;
               line-height: 40px;
@@ -115,10 +115,14 @@ main {
         width: 100%;
         padding: 25px 0;
         a {
-          font-size: 26px;
+          display: inline-block;
+          font-size: 16px;
           font-family: 'Montserrat';
           font-weight: 600;
-          color: #db0b0b;
+          color: #fdfdfd;
+          padding: 5px 10px;
+          background-color: rgb(28, 28, 28);
+          border-radius: 5px;
         }
       }
     }

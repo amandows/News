@@ -70,7 +70,7 @@ fetch('https://raw.githubusercontent.com/amandows/News/7a20a55284e1cda1ebf05be3b
               <p>${article.description}</p>
           </div>
           <div class="news-original-link">
-              <a href="${article.url}">Read More</a>
+              <a href="${article.url}">Читать полностью</a>
           </div>
       </div>
   `;
