@@ -48,34 +48,34 @@
 //   .then(data => console.log(data.articles))
 //   .catch(error => console.error(error))
 // Загружаем JSON-файл и распарсиваем его в объект JavaScript
-fetch('https://github.com/amandows/Gitpush/blob/8cb7136906624b7380b686571f116cb647a5dd71/polit.json')
-  .then(response => response.json())
-  .then(data => {
+fetch('https://github.com/amandows/News/blob/00e60c37252c8232be4511e627a3e22070119993/source/js/object.json')
+    .then(response => response.json())
+    .then(data => {
     // Получаем доступ к элементу в HTML, куда будут добавляться новости
-    const newsContainer = document.querySelector('.news-container');
-    const articles = data.articles;
-    articles.sort(() => Math.random() - 0.5);
-    newsContainer.innerHTML = '';
+        const newsContainer = document.querySelector('.news-container');
+        const articles = data.articles;
+        articles.sort(() => Math.random() - 0.5);
+        newsContainer.innerHTML = '';
     // Для каждой статьи в массиве articles создаем HTML-элемент новости
-    articles.forEach(article => {
-      const newsHtml = `
-      <div class="news">
-          <div class="news-img">
-              <img src="${article.urlToImage}" alt="${article.title}">
-          </div>
-          <div class="news-title">
-              <h3>${article.title}</h3>
-          </div>
-          <div class="news-description">
-              <p>${article.description}</p>
-          </div>
-          <div class="news-original-link">
-              <a href="${article.url}">Читать полностью</a>
-          </div>
-      </div>
-  `;
+        articles.forEach(article => {
+            const newsHtml = `
+            <div class="news">
+                <div class="news-img">
+                    <img src="${article.urlToImage}" alt="${article.title}">
+                </div>
+                <div class="news-title">
+                    <h3>${article.title}</h3>
+                </div>
+                <div class="news-description">
+                    <p>${article.description}</p>
+                </div>
+                <div class="news-original-link">
+                    <a href="${article.url}">Читать полностью</a>
+                </div>
+            </div>
+            `;
     // Добавляем HTML для новости в контейнер
-  newsContainer.insertAdjacentHTML('beforeend', newsHtml);
-  });
-  })
-  .catch(error => console.error(error));
+            newsContainer.insertAdjacentHTML('beforeend', newsHtml);
+        });
+    })
+.catch(error => console.error(error));
