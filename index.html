@@ -10,12 +10,24 @@
 </head>
 
 <body>
+  <button class="reboot"></button>
   <header>
     <div class="sub-header">
-      <form action="" class="filter" onsubmit=" return searchNews()">
-        <input type="text" name="" id="" class="theme">
-        <input type="button" value="Поиск" class="btn">
-      </form>
+      <div class="filter-ico">
+        <img class="open" src="source/images/menu_FILL0_wght400_GRAD0_opsz48.svg" alt="">
+        <img class="close" src="source/images/close_FILL0_wght400_GRAD0_opsz48.svg" alt="">
+      </div>
+      <p class="name-company">jNews</p>
+      <div class="filter-burger">
+        <div class="sport">
+          <p>Технологии</p>
+          <input type="checkbox" class="chekbox-sport" name="choice">
+        </div>
+        <div class="polit">
+          <p>Политика</p>
+          <input type="checkbox" class="chekbox-polit" name="choice">
+        </div>
+      </div>
     </div>
   </header>
   <main>

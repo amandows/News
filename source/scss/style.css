@@ -1,4 +1,6 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Oswald:wght@200;300;400;500;600;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 * {
   padding: 0;
   margin: 0;
@@ -72,29 +74,92 @@ h1, h2, h3, h4, h5, h6 {
 
 header {
   width: 100%;
-  min-height: 80px;
-  background-color: black;
+  height: 50px;
+  background-color: rgb(255, 255, 255);
+  position: relative;
 }
 header .sub-header {
   max-width: 1080px;
-  min-height: 80px;
+  height: 50px;
   margin: 0 auto;
+  position: relative;
+}
+header .sub-header .filter-ico {
+  position: relative;
+  z-index: 5;
+}
+header .sub-header .filter-ico .open {
+  display: block;
+}
+header .sub-header .filter-ico .close {
+  display: none;
+}
+header .sub-header .name-company {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "Prompt";
+  font-size: 25px;
+  font-weight: 500;
+  z-index: 3;
+}
+header .sub-header .filter-burger {
+  width: 100%;
+  height: 200px;
+  background: #fafafa;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  transition: all 0.3s ease 0s;
+  z-index: 0;
+  top: 49px;
+  left: -100%;
+}
+header .sub-header .filter-burger .sport, header .sub-header .filter-burger .polit {
+  width: 200px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 10px;
 }
-header .sub-header .filter {
-  width: 97%;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
+header .sub-header .filter-burger .sport p, header .sub-header .filter-burger .polit p {
+  font-family: "Prompt";
+  font-size: 18px;
+  font-weight: 600;
 }
-header .sub-header .filter .theme {
-  width: 75%;
-  height: 40px;
+header .sub-header .filter-burger .sport input, header .sub-header .filter-burger .polit input {
+  margin-left: 50px;
 }
-header .sub-header .filter .btn {
-  width: 20%;
+header .sub-header .filter-burger .sport input.chekbox-polit, header .sub-header .filter-burger .sport input.chekbox-sport, header .sub-header .filter-burger .polit input.chekbox-polit, header .sub-header .filter-burger .polit input.chekbox-sport {
+  width: 20px;
+  height: 20px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  background-color: #fff;
+  transition: all 0.3s ease;
+}
+header .sub-header .filter-burger .sport input.chekbox-polit:checked, header .sub-header .filter-burger .sport input.chekbox-sport:checked, header .sub-header .filter-burger .polit input.chekbox-polit:checked, header .sub-header .filter-burger .polit input.chekbox-sport:checked {
+  background-color: #2ecc71;
+  border-color: #2ecc71;
+}
+header .sub-header .filter-burger .sport input.chekbox-polit:focus, header .sub-header .filter-burger .sport input.chekbox-sport:focus, header .sub-header .filter-burger .polit input.chekbox-polit:focus, header .sub-header .filter-burger .polit input.chekbox-sport:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(46, 204, 113, 0.5);
+}
+header .sub-header .filter-burger .sport input.chekbox-polit:checked:after, header .sub-header .filter-burger .sport input.chekbox-sport:checked:after, header .sub-header .filter-burger .polit input.chekbox-polit:checked:after, header .sub-header .filter-burger .polit input.chekbox-sport:checked:after {
+  content: "\f00c";
+  font-family: FontAwesome;
+  font-size: 16px;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  color: #fff;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
 }
 
 main .news-container {
@@ -128,13 +193,13 @@ main .news-container .news .news-description {
   width: 100%;
 }
 main .news-container .news .news-description p {
-  font-family: "Poppins";
+  font-family: "Calibri";
   font-size: 16px;
   line-height: 16px;
   font-weight: 400;
 }
 main .news-container .news .news-description ol li {
-  font-family: "Poppins";
+  font-family: "Calibri";
   font-size: 16px;
   line-height: 16px;
   font-weight: 400;
@@ -152,4 +217,34 @@ main .news-container .news .news-original-link a {
   padding: 5px 10px;
   background-color: rgb(28, 28, 28);
   border-radius: 5px;
+}
+
+.reboot {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background: #000000;
+  border: 2px solid #333;
+  color: #ffffff;
+  font-size: 24px;
+  line-height: 50px;
+  text-align: center;
+  position: fixed;
+  top: 50%;
+  left: 100%;
+  transform: translateX(-115%);
+  transition: all 0.3s ease;
+}
+
+.reboot:before {
+  content: "↻";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(0deg);
+  transition: all 0.3s ease;
+}
+
+.reboot:hover:before {
+  transform: translate(-50%, -50%) rotate(360deg);
 }/*# sourceMappingURL=style.css.map */

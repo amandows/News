@@ -1,54 +1,13 @@
-// // Получаем ссылку на контейнер новостей
-// const newsContainer = document.querySelector('.news-container');
-// var query = '';
-// // Функция для получения и отображения новостей
-// var apiKey = '8f29e197997d45379ad115dbf0dedfc8';
-// // URL для получения новостей
-// const newsApiUrl = 'https://newsapi.org/v2/everything?q=' + encodeURIComponent(query) + '&apiKey=' + apiKey;
-// async function getNews() {
-//     try {
-//     // Получаем новости из API
-//     const response = await fetch(newsApiUrl);
-//     const data = await response.json();
-//     const articles = data.articles;
-//     articles.sort(() => Math.random() - 0.5);
-//     // Очищаем контейнер новостей перед вставкой новых
-//     newsContainer.innerHTML = '';
-
-//     // Добавляем каждую новость в контейнер
-//     articles.forEach(article => {
-//         const newsHtml = `
-//         <div class="news">
-//             <div class="news-img">
-//                 <img src="${article.urlToImage}" alt="${article.title}">
-//             </div>
-//             <div class="news-title">
-//                 <h3>${article.title}</h3>
-//             </div>
-//             <div class="news-description">
-//                 <p>${article.description}</p>
-//             </div>
-//             <div class="news-original-link">
-//                 <a href="${article.url}">Read More</a>
-//             </div>
-//         </div>
-//     `;
-//       // Добавляем HTML для новости в контейнер
-//     newsContainer.insertAdjacentHTML('beforeend', newsHtml);
-//     });
-//     } catch (error) {
-//     // Обработка ошибок получения данных
-//     console.error(error);
-//     }
-// }
 
 
-// fetch('https://raw.githubusercontent.com/amandows/News/7a20a55284e1cda1ebf05be3b8c3092bf719c981/source/js/object.json')
-//   .then(response => response.json())
-//   .then(data => console.log(data.articles))
-//   .catch(error => console.error(error))
-// Загружаем JSON-файл и распарсиваем его в объект JavaScript
-fetch('https://github.com/amandows/News/blob/00e60c37252c8232be4511e627a3e22070119993/source/js/object.json')
+let tech = document.querySelector('.chekbox-sport')
+let polit = document.querySelector('.chekbox-polit')
+
+
+let url = 'https://raw.githubusercontent.com/amandows/Gitpush/8cb7136906624b7380b686571f116cb647a5dd71/polit.json'
+let url2 = 'https://raw.githubusercontent.com/amandows/Gitpush/9390c6c841041c134b9342d20dad462a001049a0/tech.json'
+
+fetch(url2)
     .then(response => response.json())
     .then(data => {
     // Получаем доступ к элементу в HTML, куда будут добавляться новости
@@ -79,3 +38,45 @@ fetch('https://github.com/amandows/News/blob/00e60c37252c8232be4511e627a3e220701
         });
     })
 .catch(error => console.error(error));
+
+
+
+let openMenu = document.querySelector('.open')
+let closeMenu = document.querySelector('.close')
+let menuIco = document.querySelector('.filter-ico')
+let burger = document.querySelector('.filter-burger')
+let num = 0;
+menuIco.addEventListener('click', () => {
+    num++
+    console.log(num)
+    if(num % 2 !== 0) {
+        openMenu.style.cssText = "display: none;"
+        closeMenu.style.cssText = "display: block;"
+        burger.style.cssText = "top: 49px; left: 0;"
+    }
+    else if(num % 2 == 0) {
+        closeMenu.style.cssText = "display: none;"
+        openMenu.style.cssText = "display: block;"
+        burger.style.cssText = "top: 49px; left: -100%;"
+    }
+})
+
+
+const checkboxes = document.querySelectorAll('input[name="choice"]');
+
+checkboxes.forEach((checkbox) => {
+    checkbox.addEventListener('change', () => {
+        checkboxes.forEach((otherCheckbox) => {
+            if (otherCheckbox !== checkbox) {
+            otherCheckbox.checked = false;
+            }     
+        });
+    });
+});
+
+
+let rebootButton = document.querySelector('.reboot');
+
+rebootButton.addEventListener('click', function() {
+    location.reload();
+});
