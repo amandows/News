@@ -56,7 +56,6 @@ let fashion = urlArr[5]
 let it = urlArr[6]
 let all = urlArr[7]
 
-console.log(sport)
 
 function getNews(url) {
     return fetch(url)
@@ -80,7 +79,6 @@ Promise.all(allNewsPromises)
 
 
 
-
 function renderNews(news) {
     const newsContainer = document.querySelector('.news-container');
     newsContainer.innerHTML = '';
@@ -88,7 +86,7 @@ function renderNews(news) {
         const newsHtml = `
         <div class="news">
           <div class="news-img">
-            <img data-src="source/images/load.gif" src="${article.urlToImage}" alt="${article.title}">
+            <img data-src="${article.urlToImage}" src="source/images/10px.png" alt="${article.title}">
           </div>
           <div class="news-title">
             <h3>${article.title}</h3>
@@ -154,8 +152,8 @@ applyFilter.addEventListener('click', () => {
                 const newsImgDiv = document.createElement('div')
                 newsImgDiv.classList.add('news-img')
                 const newsImg = document.createElement('img')
-                newsImg.setAttribute('loading', 'lazy')
-                newsImg.setAttribute('src', news.urlToImage)
+                newsImg.setAttribute('data-src', news.urlToImage)
+                newsImg.setAttribute('src', 'source/images/10px.png')
                 newsImg.setAttribute('alt', news.title)
                 newsImgDiv.appendChild(newsImg)
                 newsDiv.appendChild(newsImgDiv)
@@ -167,14 +165,14 @@ applyFilter.addEventListener('click', () => {
                 newsTitleDiv.appendChild(newsTitle)
                 newsDiv.appendChild(newsTitleDiv)
 
-                const newsDescriptionDiv = document.createElement('div')
-                newsDescriptionDiv.classList.add('news-description')
-                const newsDescription = document.createElement('p')
-
                 const playButton = document.createElement('button');
                 playButton.classList.add('play-text');
                 playButton.setAttribute('onclick', "getButtonParent()")
+
+                const newsDescriptionDiv = document.createElement('div')
+                newsDescriptionDiv.classList.add('news-description')
                 newsDescriptionDiv.appendChild(playButton);
+                const newsDescription = document.createElement('p')
 
                 newsDescription.textContent = news.description
                 newsDescriptionDiv.appendChild(newsDescription)
@@ -188,12 +186,15 @@ applyFilter.addEventListener('click', () => {
                 newsDiv.appendChild(newsOriginalLinkDiv)
                 const p = document.querySelector('p');
                 p.innerHTML = p.innerHTML.replace('""', '');
+                setTimeout(scrollY, 100);
             })
         })
         .catch((error) => {
             console.log('Error:', error)
         })
 })
+
+
 
 
 function getButtonParent() {
@@ -210,31 +211,43 @@ function getButtonParent() {
     utterance.rate = 1.7;
     synth.speak(utterance);
 }
-// // Создаем новый объект для синтеза речи
-// var synth = window.speechSynthesis;
 
-// // Создаем новый объект SpeechSynthesisUtterance
-// var utterance = new SpeechSynthesisUtterance();
 
-// // Получаем текст из элемента <p> с классом .text
-// var textElement = document.querySelector('.text');
-// var text = textElement.textContent.trim();
+function scrollY() {
+    const lazyImages = document.querySelectorAll('img[data-src]')
+    const windowHeight = document.documentElement.clientHeight;
+  
+    let lazyImagesPositions = []
+    if (lazyImages.length > 0) {
+        lazyImages.forEach(img => {
+            if(img.dataset.src) {
+                lazyImagesPositions.push(img.getBoundingClientRect().top + window.pageYOffset)
+                lazyScrollCheck()
+            }
+        })
+    }
+    window.addEventListener('scroll', lazyScroll)
+  
+    function lazyScroll() {
+        if(document.querySelectorAll('img[data-src]').length > 0) {
+            lazyScrollCheck()
+        }
+    }
+  
+    function lazyScrollCheck() {
+        let imgIndex = lazyImagesPositions.findIndex(
+            item => window.pageYOffset > item - windowHeight
+        )
+        if(imgIndex >= 0) {
+            if(lazyImages[imgIndex].dataset.src) {
+                lazyImages[imgIndex].src = lazyImages[imgIndex].dataset.src;
+                lazyImages[imgIndex].removeAttribute('data-src');
+            }
+            delete lazyImagesPositions[imgIndex];
+        }
+    }
+  }
+  
+  
+setTimeout(scrollY, 100);
 
-// // Задаем текст, который нужно произнести голосом
-// utterance.text = text;
-
-// // Устанавливаем язык и голос для произношения
-// utterance.lang = "ru";
-// var voices = synth.getVoices();
-// utterance.voice = voices.find(function(voice) { return voice.name === voice.name === voice.name === "Apple Tatyana"; });
-
-// // Устанавливаем скорость произношения
-// utterance.rate = 1.7;
-
-// // Произносим текст голосом
-// synth.speak(utterance);
-
-// var voices = window.speechSynthesis.getVoices();
-
-// // Выводим информацию о доступных голосах в консоль
-// console.log(voices);
