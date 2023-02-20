@@ -42,7 +42,7 @@ header {
   width: 100%;
   height: 50px;
   background-color: rgb(255, 255, 255);
-  position: relative;
+  position: fixed;
   .sub-header {
     max-width: 1080px;
     height: 50px;
@@ -77,7 +77,7 @@ header {
       justify-content: center;
       position: absolute;
       transition: all 0.3s ease 0s;
-      z-index: 0;
+      z-index: 3;
       top: 49px;
       left: -100%;
       .filter-text {
@@ -120,7 +120,6 @@ main {
   .news-container {
     max-width: 1080px;
     margin: 0 auto;
-    overflow: hidden;
     .news {
       width: 97%;
       margin: 0 auto;
@@ -155,14 +154,33 @@ main {
           font-size: 16px;
           line-height: 16px;
           font-weight: 400;
-          ol {
-            li {
-              font-family: "Calibri";
-              font-size: 16px;
-              line-height: 16px;
-              font-weight: 400;
-            }
-          }
+        }
+        .play-text {
+          width: 50px;
+          height: 25px;
+          background: #000;
+          border-radius: 5px;
+          margin-top: 20px;
+          position: relative;
+          z-index: 1; /* Необходимо для позиционирования псевдоэлемента */
+        }
+        
+        .play-text::before {
+          content: '\25B6'; /* Код символа Unicode для треугольника вправо */
+          font-size: 15px;
+          color: #fff;
+          position: absolute; /* Позиционируем псевдоэлемент относительно кнопки */
+          top: 60%; /* Располагаем псевдоэлемент по вертикали в центре кнопки */
+          left: 50%; /* Располагаем псевдоэлемент по горизонтали в центре кнопки */
+          transform: translate(-50%, -50%); /* Центрируем псевдоэлемент в кнопке */
+          z-index: 1;
+        }
+        .play-text::after {
+          position: absolute;
+          content: '';
+          top: 55%; /* Располагаем псевдоэлемент по вертикали в центре кнопки */
+          left: 50%;
+          transform: translate(-50%, -50%);
         }
         ol {
           li {
@@ -175,7 +193,7 @@ main {
       }
       .news-original-link {
         width: 100%;
-        padding: 25px 0;
+        padding: 10px 0;
         a {
           display: inline-block;
           font-size: 16px;
@@ -210,7 +228,7 @@ main {
   position: fixed;
   top: 50%;
   left: 100%;
-  transform: translateX(-115%);
+  transform: translateX(-150%);
   transition: all 0.3s ease;
 }
 
@@ -226,7 +244,6 @@ main {
 .reboot:hover:before {
   transform: translate(-50%, -50%) rotate(360deg);
 }
-
 .chkx {
   position: relative;
   width: 20px;
