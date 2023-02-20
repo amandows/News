@@ -199,7 +199,7 @@ applyFilter.addEventListener('click', () => {
 
 function getButtonParent() {
     const button = event.target; // получить ссылку на элемент, который вызвал событие
-    const parent = button.parentNode; 
+    const parent = button.parentNode;
     const textElement = parent.firstElementChild;
     var synth = window.speechSynthesis;
     var utterance = new SpeechSynthesisUtterance();
@@ -207,7 +207,7 @@ function getButtonParent() {
     utterance.text = text;
     utterance.lang = "ru";
     var voices = synth.getVoices();
-    utterance.voice = voices.find(function(voice) { return voice.name === voice.name === voice.name === "Apple Tatyana"; });
+    utterance.voice = voices.find(function (voice) { return voice.name === voice.name === voice.name === "Apple Tatyana"; });
     utterance.rate = 1.7;
     synth.speak(utterance);
 }
@@ -216,38 +216,37 @@ function getButtonParent() {
 function scrollY() {
     const lazyImages = document.querySelectorAll('img[data-src]')
     const windowHeight = document.documentElement.clientHeight;
-  
+
     let lazyImagesPositions = []
     if (lazyImages.length > 0) {
         lazyImages.forEach(img => {
-            if(img.dataset.src) {
+            if (img.dataset.src) {
                 lazyImagesPositions.push(img.getBoundingClientRect().top + window.pageYOffset)
                 lazyScrollCheck()
             }
         })
     }
     window.addEventListener('scroll', lazyScroll)
-  
+
     function lazyScroll() {
-        if(document.querySelectorAll('img[data-src]').length > 0) {
+        if (document.querySelectorAll('img[data-src]').length > 0) {
             lazyScrollCheck()
         }
     }
-  
+
     function lazyScrollCheck() {
         let imgIndex = lazyImagesPositions.findIndex(
             item => window.pageYOffset > item - windowHeight
         )
-        if(imgIndex >= 0) {
-            if(lazyImages[imgIndex].dataset.src) {
+        if (imgIndex >= 0) {
+            if (lazyImages[imgIndex].dataset.src) {
                 lazyImages[imgIndex].src = lazyImages[imgIndex].dataset.src;
                 lazyImages[imgIndex].removeAttribute('data-src');
             }
             delete lazyImagesPositions[imgIndex];
         }
     }
-  }
-  
-  
+}
+
 setTimeout(scrollY, 100);
 
