@@ -186,7 +186,7 @@ applyFilter.addEventListener('click', () => {
                 newsDiv.appendChild(newsOriginalLinkDiv)
                 const p = document.querySelector('p');
                 p.innerHTML = p.innerHTML.replace('""', '');
-                setTimeout(scrollY, 100);
+                setTimeout(scrollY, 1000);
             })
         })
         .catch((error) => {
@@ -248,5 +248,5 @@ function scrollY() {
     }
 }
 
-setTimeout(scrollY, 100);
+setTimeout(scrollY, 1000);
 
