@@ -88,7 +88,7 @@ function renderNews(news) {
       const newsHtml = `
         <div class="news">
           <div class="news-img">
-            <img src="${article.urlToImage}" alt="${article.title}">
+            <img loading="lazy" src="${article.urlToImage}" alt="${article.title}">
           </div>
           <div class="news-title">
             <h3>${article.title}</h3>
@@ -152,11 +152,12 @@ applyFilter.addEventListener('click', () => {
           const newsImgDiv = document.createElement('div')
           newsImgDiv.classList.add('news-img')
           const newsImg = document.createElement('img')
+          newsImg.setAttribute('loading', 'lazy')
           newsImg.setAttribute('src', news.urlToImage)
           newsImg.setAttribute('alt', news.title)
           newsImgDiv.appendChild(newsImg)
           newsDiv.appendChild(newsImgDiv)
-  
+
           const newsTitleDiv = document.createElement('div')
           newsTitleDiv.classList.add('news-title')
           const newsTitle = document.createElement('h3')
