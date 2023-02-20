@@ -208,7 +208,7 @@ function getButtonParent() {
     utterance.lang = "ru";
     var voices = synth.getVoices();
     utterance.voice = voices.find(function (voice) { return voice.name === voice.name === voice.name === "Apple Tatyana"; });
-    utterance.rate = 1.7;
+    utterance.rate = 1.0;
     synth.speak(utterance);
 }
 
