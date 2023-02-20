@@ -106,7 +106,7 @@ header .sub-header .name-company {
 }
 header .sub-header .filter-burger {
   width: 100%;
-  height: 200px;
+  min-height: 350px;
   background: #fafafa;
   display: flex;
   flex-direction: column;
@@ -117,54 +117,42 @@ header .sub-header .filter-burger {
   top: 49px;
   left: -100%;
 }
-header .sub-header .filter-burger .sport, header .sub-header .filter-burger .polit {
-  width: 200px;
+header .sub-header .filter-burger .filter-text {
+  font-family: "Prompt";
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 auto;
+  margin-bottom: 25px;
+}
+header .sub-header .filter-burger .sport, header .sub-header .filter-burger .policy, header .sub-header .filter-burger .food, header .sub-header .filter-burger .tehnology, header .sub-header .filter-burger .science, header .sub-header .filter-burger .fashion, header .sub-header .filter-burger .it, header .sub-header .filter-burger .submit, header .sub-header .filter-burger .all {
+  width: 250px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
+  padding: 5px 10px;
 }
-header .sub-header .filter-burger .sport p, header .sub-header .filter-burger .polit p {
+header .sub-header .filter-burger .sport p, header .sub-header .filter-burger .policy p, header .sub-header .filter-burger .food p, header .sub-header .filter-burger .tehnology p, header .sub-header .filter-burger .science p, header .sub-header .filter-burger .fashion p, header .sub-header .filter-burger .it p, header .sub-header .filter-burger .submit p, header .sub-header .filter-burger .all p {
   font-family: "Prompt";
   font-size: 18px;
   font-weight: 600;
 }
-header .sub-header .filter-burger .sport input, header .sub-header .filter-burger .polit input {
+header .sub-header .filter-burger .sport input, header .sub-header .filter-burger .policy input, header .sub-header .filter-burger .food input, header .sub-header .filter-burger .tehnology input, header .sub-header .filter-burger .science input, header .sub-header .filter-burger .fashion input, header .sub-header .filter-burger .it input, header .sub-header .filter-burger .submit input, header .sub-header .filter-burger .all input {
   margin-left: 50px;
 }
-header .sub-header .filter-burger .sport input.chekbox-polit, header .sub-header .filter-burger .sport input.chekbox-sport, header .sub-header .filter-burger .polit input.chekbox-polit, header .sub-header .filter-burger .polit input.chekbox-sport {
-  width: 20px;
-  height: 20px;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  border: 2px solid #ccc;
-  border-radius: 50%;
-  background-color: #fff;
-  transition: all 0.3s ease;
-}
-header .sub-header .filter-burger .sport input.chekbox-polit:checked, header .sub-header .filter-burger .sport input.chekbox-sport:checked, header .sub-header .filter-burger .polit input.chekbox-polit:checked, header .sub-header .filter-burger .polit input.chekbox-sport:checked {
-  background-color: #2ecc71;
-  border-color: #2ecc71;
-}
-header .sub-header .filter-burger .sport input.chekbox-polit:focus, header .sub-header .filter-burger .sport input.chekbox-sport:focus, header .sub-header .filter-burger .polit input.chekbox-polit:focus, header .sub-header .filter-burger .polit input.chekbox-sport:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(46, 204, 113, 0.5);
-}
-header .sub-header .filter-burger .sport input.chekbox-polit:checked:after, header .sub-header .filter-burger .sport input.chekbox-sport:checked:after, header .sub-header .filter-burger .polit input.chekbox-polit:checked:after, header .sub-header .filter-burger .polit input.chekbox-sport:checked:after {
-  content: "\f00c";
-  font-family: FontAwesome;
-  font-size: 16px;
-  position: absolute;
-  top: 3px;
-  left: 3px;
-  color: #fff;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+header .sub-header .filter-burger .sport .apply-filter, header .sub-header .filter-burger .policy .apply-filter, header .sub-header .filter-burger .food .apply-filter, header .sub-header .filter-burger .tehnology .apply-filter, header .sub-header .filter-burger .science .apply-filter, header .sub-header .filter-burger .fashion .apply-filter, header .sub-header .filter-burger .it .apply-filter, header .sub-header .filter-burger .submit .apply-filter, header .sub-header .filter-burger .all .apply-filter {
+  padding: 5px 10px;
+  background: rgb(36, 36, 36);
+  color: #fafafa;
+  font-family: "Prompt";
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 5px;
 }
 
 main .news-container {
   max-width: 1080px;
   margin: 0 auto;
+  overflow: hidden;
 }
 main .news-container .news {
   width: 97%;
@@ -193,6 +181,12 @@ main .news-container .news .news-description {
   width: 100%;
 }
 main .news-container .news .news-description p {
+  font-family: "Calibri";
+  font-size: 16px;
+  line-height: 16px;
+  font-weight: 400;
+}
+main .news-container .news .news-description p ol li {
   font-family: "Calibri";
   font-size: 16px;
   line-height: 16px;
@@ -247,4 +241,35 @@ main .news-container .news .news-original-link a {
 
 .reboot:hover:before {
   transform: translate(-50%, -50%) rotate(360deg);
+}
+
+.chkx {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 2px solid #000;
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.chkx::before {
+  content: "";
+  position: absolute;
+  top: 1px;
+  left: 5px;
+  width: 7px;
+  height: 12px;
+  border: solid #000;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.chkx:checked::before {
+  opacity: 1;
 }/*# sourceMappingURL=style.css.map */

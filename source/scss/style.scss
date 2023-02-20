@@ -70,7 +70,7 @@ header {
     }
     .filter-burger {
       width: 100%;
-      height: 200px;
+      min-height: 350px;
       background: #fafafa;
       display: flex;
       flex-direction: column;
@@ -80,12 +80,19 @@ header {
       z-index: 0;
       top: 49px;
       left: -100%;
-      .sport, .polit {
-        width: 200px;
+      .filter-text {
+        font-family: "Prompt";
+        font-size: 18px;
+        font-weight: 600;
+        margin: 0 auto;
+        margin-bottom: 25px;
+      }
+      .sport, .policy, .food, .tehnology, .science, .fashion, .it, .submit, .all {
+        width: 250px;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 10px;
+        padding: 5px 10px;
         p {
           font-family: "Prompt";
           font-size: 18px;
@@ -94,37 +101,17 @@ header {
         input {
           margin-left: 50px;
         }
-        input.chekbox-polit, input.chekbox-sport {
-          width: 20px;
-          height: 20px;
-          -webkit-appearance: none;
-          -moz-appearance: none;
-          appearance: none;
-          border: 2px solid #ccc;
-          border-radius: 50%;
-          background-color: #fff;
-          transition: all 0.3s ease;
+        .apply-filter {
+          padding: 5px 10px;
+          background: rgb(36, 36, 36);
+          color: #fafafa;
+          font-family: "Prompt";
+          font-size: 14px;
+          font-weight: 600;
+          border-radius: 5px;
+          // margin-left: 100%;
+          // transform: translateX(-100%);
         }
-        
-        input.chekbox-polit:checked, input.chekbox-sport:checked {
-          background-color: #2ecc71;
-          border-color: #2ecc71;
-        }
-        input.chekbox-polit:focus, input.chekbox-sport:focus {
-          outline: none;
-          box-shadow: 0 0 0 3px rgba(46, 204, 113, 0.5);
-        }
-        input.chekbox-polit:checked:after, input.chekbox-sport:checked:after {
-          content: "\f00c";
-          font-family: FontAwesome;
-          font-size: 16px;
-          position: absolute;
-          top: 3px;
-          left: 3px;
-          color: #fff;
-          text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
-        }
-        
       }
     }
   }
@@ -133,6 +120,7 @@ main {
   .news-container {
     max-width: 1080px;
     margin: 0 auto;
+    overflow: hidden;
     .news {
       width: 97%;
       margin: 0 auto;
@@ -167,6 +155,14 @@ main {
           font-size: 16px;
           line-height: 16px;
           font-weight: 400;
+          ol {
+            li {
+              font-family: "Calibri";
+              font-size: 16px;
+              line-height: 16px;
+              font-weight: 400;
+            }
+          }
         }
         ol {
           li {
@@ -229,4 +225,35 @@ main {
 
 .reboot:hover:before {
   transform: translate(-50%, -50%) rotate(360deg);
+}
+
+.chkx {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 2px solid #000;
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.chkx::before {
+  content: "";
+  position: absolute;
+  top: 1px;
+  left: 5px;
+  width: 7px;
+  height: 12px;
+  border: solid #000;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.chkx:checked::before {
+  opacity: 1;
 }
