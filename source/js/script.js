@@ -184,7 +184,7 @@ applyFilter.addEventListener('click', () => {
                 newsOriginalLink.textContent = 'Подробнее на сайте'
                 newsOriginalLinkDiv.appendChild(newsOriginalLink)
                 newsDiv.appendChild(newsOriginalLinkDiv)
-                setTimeout(scrollY, 1000);
+                setTimeout(scrollY, 300);
             })
         })
         .catch((error) => {
@@ -252,5 +252,5 @@ function scrollY() {
     }
 }
 
-setTimeout(scrollY, 1000);
+setTimeout(scrollY, 300);
 
