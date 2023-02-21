@@ -165,17 +165,17 @@ applyFilter.addEventListener('click', () => {
                 newsTitleDiv.appendChild(newsTitle)
                 newsDiv.appendChild(newsTitleDiv)
 
+
+                const newsDescriptionDiv = document.createElement('div')
+                newsDescriptionDiv.classList.add('news-description')
+                const newsDescription = document.createElement('p')
                 const playButton = document.createElement('button');
                 playButton.classList.add('play-text');
                 playButton.setAttribute('onclick', "getButtonParent()")
 
-                const newsDescriptionDiv = document.createElement('div')
-                newsDescriptionDiv.classList.add('news-description')
-                newsDescriptionDiv.appendChild(playButton);
-                const newsDescription = document.createElement('p')
-
                 newsDescription.textContent = news.description
                 newsDescriptionDiv.appendChild(newsDescription)
+                newsDescriptionDiv.appendChild(playButton);
                 newsDiv.appendChild(newsDescriptionDiv)
                 const newsOriginalLinkDiv = document.createElement('div')
                 newsOriginalLinkDiv.classList.add('news-original-link')
