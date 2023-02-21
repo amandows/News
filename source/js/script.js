@@ -196,9 +196,9 @@ applyFilter.addEventListener('click', () => {
 
 
 
-
+voiceNum = 0
 function getButtonParent() {
-    const button = event.target; // получить ссылку на элемент, который вызвал событие
+    const button = event.target;
     const parent = button.parentNode;
     const textElement = parent.firstElementChild;
     var synth = window.speechSynthesis;
@@ -209,7 +209,13 @@ function getButtonParent() {
     var voices = synth.getVoices();
     utterance.voice = voices.find(function (voice) { return voice.name === voice.name === voice.name === "Apple Tatyana"; });
     utterance.rate = 1.0;
-    synth.speak(utterance);
+    voiceNum++
+    console.log(voiceNum)
+    if (voiceNum % 2 !== 0) {
+      synth.speak(utterance);
+    } else if (voiceNum % 2 == 0) {
+      window.speechSynthesis.cancel();
+    }
 }
 
 
