@@ -142,7 +142,7 @@ applyFilter.addEventListener('click', () => {
     Promise.all(selectedCategories.map(category => fetch(category).then(response => response.json())))
         .then((results) => {
             const allNews = results.flatMap(result => result.articles)
-            allNews.sort(() => Math.random() - 0.5);
+            // allNews.sort(() => Math.random() - 0.5);
 
             allNews.forEach((news) => {
                 const newsDiv = document.createElement('div')
@@ -184,8 +184,6 @@ applyFilter.addEventListener('click', () => {
                 newsOriginalLink.textContent = 'Подробнее на сайте'
                 newsOriginalLinkDiv.appendChild(newsOriginalLink)
                 newsDiv.appendChild(newsOriginalLinkDiv)
-                const p = document.querySelector('p');
-                p.innerHTML = p.innerHTML.replace('""', '');
                 setTimeout(scrollY, 1000);
             })
         })
@@ -196,7 +194,7 @@ applyFilter.addEventListener('click', () => {
 
 
 
-voiceNum = 0
+let voiceNum = 0
 function getButtonParent() {
     const button = event.target;
     const parent = button.parentNode;
