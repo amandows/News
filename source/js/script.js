@@ -210,9 +210,9 @@ function getButtonParent() {
     voiceNum++
     console.log(voiceNum)
     if (voiceNum % 2 !== 0) {
-      synth.speak(utterance);
+        synth.speak(utterance);
     } else if (voiceNum % 2 == 0) {
-      window.speechSynthesis.cancel();
+        window.speechSynthesis.cancel();
     }
 }
 
